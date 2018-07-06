@@ -1,0 +1,37 @@
+1.What is servlet context?
+Ans:It is a configuration object,which is created when web application is started, and it contains different initialization parameter that can be configured in web.xml.
+2.servlet LoadOnStatus?
+   DOUGHT
+3.Life cycle of servletContext?
+Ans: Servlet container reads the web.xml and creats the name string pair for each<context_parameter> when web application is start then container creats a new instance of servletContext, servlet container gives the servletContext a reference to each name pair of the context init parameter and then every servlet and jsp in the same web application will now has acces to this ServletContext.
+4.How servletContext is different from servletConfig   
+Ans:  ServletContext is one per web application while servletConfig is one per servlet.                                                 ServletContext is available to all servlet and jsp in web application while servletconfig will be available only specificservlet.       difference in syntax.
+5.What is servletContextListener?
+Ans:  servletContextListener is neede when servletContext is availabe to all servlet and jsp, when you perform some kind of action when contex initialization process happens.
+6.What are the important points of servlet context?
+Ans:  only one servlet context is available per web application,                Every servlet in the same web application will have acces to servletcontext.    it is used to acces application level parameter.      If application is in distributed environment then there will be one servletContext per jvm. servletContext has init parameter that can be configured in web.xml
+7. What is the use of servlet configuration?
+Ans: Servlet Container creates ServletConfig object for each Servlet during initialization, to pass information to the Servlet. This object can be used to get configuration information such as parameter name and values from deployment descriptor file(web.xml).
+8. What is the methods of ServletConfig interface?
+Ans:  public StringParameter(String name): returns the value of given parameter as String,or null if the given parameter doesn't exit in web.xml.   public Enumeration getInitParameterNames():Returns an enumeration of all the parameter names.           public String getServletName(): Returns the name of the servlet instance.    public ServletContext getServletContext(): Returns an object of ServletContext.
+9. What is servletRequest?
+Ans:  the job of the servlet is to handle client request, Servlet API providers 2 important interfaces i.e. javax.servletRequest and javax.servlet.http.HttpServletrequest to encapsulate client request.Implementation of theseinterfaces provide important information about client request to a servlet.
+10.What are the important methods of servlet request?
+Ans:  Object getAttribute(String name), Object getAttribute(String name) , int getContentLength() , int getContentType() , ServletInputStream getInputStream() , String getParameter(String name) , String getLocalAddr() , String getLocalAddr() , String[] getParameterValues(String name) , ServletContext getServletContext() , String getServerName(), int getServerPort() , boolean isSecure() , void removeAttribute(String name) , void setAttribute(String name, Object o) .
+11.what are the methods of HttpServletrequest interface?
+Ans:  HttpServletrequest interface  adds the methods that relates to the HTTP protocol. String getContextPath()	, Cookies getCookies() , String getQueryString() , HttpSession getSession() , HttpSession getSession() , Part getPart(String name) , String getPathInfo() , String getServletPath().
+12.What are the two type of response in servlet?
+Ans:  1-ServletResponse,2-HttpServletResponse.
+13. what are the methods of servletResponse?
+Ans: PrintWriter getWriter() , void setBufferSize(int size) , void setContentLength(int len) ,  void setContentType(String type) , void setBufferSize(int size) , boolean isCommitted() , void setLocale(Locale loc).
+14. What is RequsetDispatcher?
+Ans.RequestDispatcher is an interface.implementation of which defines an object which can dispatch request to any resources(such as HTML,images,JSP,Servlet) on the server.
+15.What are the 2 method used in RequestDispatcher?
+Ans. 1- void forward(ServletRequest request, ServletResponse response) ,    2-void include(ServletRequest request, ServletResponse response).
+16. What is sendRedirect() method?
+Ans: sendRedirect() method redirects the response to another resource. This method actually makes the client(browser) to create anew request to get  to the resourse.The client can see the new url in the browser.  sendRedirect() accepts relative URL ,so it can go for resourse inside the server. 
+17. What is the difference between sendRedirect() and RequestDispatcher?
+Ans.  The redirection makes makes the client(browser) create a new request to get to the resource ,the user can see the new URL while request dispatch get the resource in same requWest and URL does not changes. Another very important difference is that , sendRedirect() works on response object while request dispatch work on request object.
+18.What is attribute?
+Ans: An attribute is an object that is used to share information in aweb app.Attribute allows Servlet to share information among themselvs.Attribute can be SET and GET from one of the following scopes: 1- request , 2- session , 3- application.
+  
